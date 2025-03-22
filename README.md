@@ -6,11 +6,11 @@ Hackathon Project - Crowdsourced Disaster Relief Platform
 - [x] UI UX Design
 - [x] Backend Setup
 - [x] HTMl Wireframe
-- [x] CSS Wireframe and Updation
+- [ ] CSS Wireframe and Updation
 
 # Developement Phase 2
 
-- :white_check_mark:
-- :white_check_mark:
-- :white_check_mark:
+:white_check_mark:
+:white_check_mark:
+:white_check_mark:
 
