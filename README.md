@@ -3,10 +3,10 @@ Hackathon Project - Crowdsourced Disaster Relief Platform
 
 # Developement Phase 1 
 
-[*] UI UX Design
-[*] Backend Setup
-[*] HTMl Wireframe
-[*] CSS Wireframe and Updation
+[x] UI UX Design
+[x] Backend Setup
+[x] HTMl Wireframe
+[x] CSS Wireframe and Updation
 
 # Developement Phase 2
 
