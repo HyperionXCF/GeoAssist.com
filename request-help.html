@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+    <title>Request Help</title>
+    <link rel="stylesheet" href="style-req.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">GEOASSIST 🌍</div>
+        <div class="menu-icon">☰</div>
+    </header>
+
+<main class="main">
+    <h1>REQUEST HELP</h1>
+    <P>GET QUICK HELP FROM NEAREST VOLUNTEER</P>
+
+    <form action="#" method="POST" class="help-form">
+
+        <input type="text" placeholder="FULL NAME" required>
+        <input type="tel" placeholder="PHONE NUMBER" required>
+        <input type="text" placeholder="ADDRESS" required>
+
+        <select required>
+            <option disabled selected>EMERGENCY TYPE</option>
+            <option value="fire">Fire</option>
+            <option value="flood">Flood</option>
+            <option value="earthquake">Earthquake</option>
+            <option value="medical">Medical</option>
+        </select>
+
+        <select required>
+            <option disabled selected>PERSON AFFECTED</option>
+            <option value="self">Self</option>
+            <option value="family">Family</option>
+            <option value="neighbor">Neighbor</option>
+            <option value="others">Others</option>
+        </select>
+
+        <label class="upload-btn">
+            UPLOAD IMAGES
+            <input type="file" multiple accept="image/*" hidden>
+        </label>
+
+        <button type="button" class="live-location">SHARE LIVE LOCATION</button>
+
+        <button type="submit" class="send-btn">SEND</button>
+
+    </form>
+</main>
+
+</body>
+</html>

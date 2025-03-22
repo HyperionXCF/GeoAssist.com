@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assist Nearby</title>
+    <link rel="stylesheet" href="style-assist.css">
+</head>
+<body>
+
+
+    <header class="header">
+        <div class="logo">GEOASSIST 🌍</div>
+        <div class="menu-icon">☰</div>
+    </header>
+
+<main class="main">
+
+    <div class="top-section">
+        <button id="map-btn" class="btn">MAP</button>
+        <button id="requests-btn" class="btn">NEARBY REQUESTS</button>
+    </div>
+
+    <div id="map-view" class="map-container" style="display:none;">
+        <div id="map"></div>
+    </div>
+
+    <div id="requests-view" class="requests-container" style="display:none;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Location</th>
+                    <th>Emergency</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pune</td>
+                    <td>Flood</td>
+                    <td>10:30 AM</td>
+                </tr>
+                <tr>
+                    <td>Mumbai</td>
+                    <td>Fire</td>
+                    <td>11:15 AM</td>
+                </tr>
+                <tr>
+                    <td>Nashik</td>
+                    <td>Medical</td>
+                    <td>12:00 PM</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</main>
+
+<!-- Google Maps API -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async defer></script>
+<script src="script.js" defer></script>
+
+</body>
+</html>
