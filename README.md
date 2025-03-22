@@ -1,25 +1,31 @@
-# GeoAssist.com
-Hackathon Project - Crowdsourced Disaster Relief Platform 
+# 🌍 GeoAssist Overview
+
+Hackathon Project
+GeoAssist – Making disaster relief accessible and efficient through real-time reporting and volunteer coordination.
+
+### Brief Overview 
+
+GeoAssist is a crowdsourced disaster relief platform designed to bridge communication gaps during emergencies by enabling real-time disaster reporting, volunteer coordination, and efficient resource distribution. The platform ensures low-connectivity compatibility, allowing stranded individuals to request aid even in regions with limited network access.
 
 
 ## Developement Phase 1 
-
-- [x] UI UX Design
-- [x] NodeJS Setup
-- [x] HTMl Wireframe
-- [x] CSS Wireframe and Updation
-- [.] Geolocation API Integration
-- [.] ExpressJS setup
+- ☑️ UI UX Design
+- ☑️ NodeJS Setup
+- ☑️ HTMl Wireframe
+- ☑️ CSS Wireframe and Updation
+- ❎ Geolocation API Integration
+- ❎ ExpressJS setup
 
 ## Developement Phase 2
 
-- [.] Add Geolocation Pins on Disaster Map view
-- [.] Add Realtime Map Location Updation with Firebase
-- [.] Setup MongoDB 2D space for API fetching 
+- ❎ Add Geolocation Pins on Disaster Map view
+- ❎ Add Realtime Map Location Updation with Firebase
+- ❎ Setup MongoDB 2D space for API fetching 
 
-## Developement Phase 3
+## Features To Be Updated With Next Developement Cycles
 
-- [.]
-- [.]
-- [.]
-- [.]
+-  Real-Time Notifications
+-  Verified volunteer database with contact details
+-  Continuous location sharing for stranded users
+-  End-to-end encryption for sensitive user data
+  
