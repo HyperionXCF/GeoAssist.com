@@ -13,14 +13,14 @@ GeoAssist is a crowdsourced disaster relief platform designed to bridge communic
 - ☑️ NodeJS Setup
 - ☑️ HTMl Wireframe
 - ☑️ CSS Wireframe and Updation
-- ❎ Geolocation API Integration
-- ❎ ExpressJS setup
+- ☑️ Geolocation API Integration
+- ☑️ ExpressJS setup
 
 ## Developement Phase 2
 
-- ❎ Add Geolocation Pins on Disaster Map view
+- ☑️ Add Geolocation Pins on Disaster Map view
 - ❎ Add Realtime Map Location Updation with Firebase
-- ❎ Setup MongoDB 2D space for API fetching 
+- ☑️ Setup MongoDB 2D space for API fetching 
 
 ## Features To Be Updated With Next Developement Cycles
 
@@ -28,4 +28,9 @@ GeoAssist is a crowdsourced disaster relief platform designed to bridge communic
 -  Verified volunteer database with contact details
 -  Continuous location sharing for stranded users
 -  End-to-end encryption for sensitive user data
-  
+
+>>>>>>>>>>> copy all the files, setup environment with latest LTS nodeJS, expressJS, Mongoose Compass <<<<<<<<<<<<<
+
+'''
+nodemon disaster
+'''
