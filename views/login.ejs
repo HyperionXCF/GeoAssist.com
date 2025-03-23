@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script>
+const firebaseConfig = {
+  apiKey: "AIzaSyA-TcoYs6tDNCt2W4Q8_tELYtjWJtLFfr0",
+  authDomain: "disaster-d7cf5.firebaseapp.com",
+  projectId: "disaster-d7cf5",
+  storageBucket: "disaster-d7cf5.firebasestorage.app",
+  messagingSenderId: "629919464385",
+  appId: "1:629919464385:web:3023267f4955e26d608d40",
+  measurementId: "G-YCSC848F6H"
+};
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+</head>
+<body>
+    <div class="auth-form">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label>Password:</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <p id="error" style="color: red"></p>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            try {
+                // 1. Sign in with Firebase client SDK
+                const userCredential = await firebase.auth().signInWithEmailAndPassword(email, password);
+                
+                // 2. Get ID token
+                const idToken = await userCredential.user.getIdToken();
+                console.log('Client Token:', idToken); // Verify in browser console
+        
+                // 3. Send token to server
+                const response = await fetch('/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${idToken}`
+                    }
+                });
+        
+                // 4. Handle response
+                if (response.ok) {
+                    window.location.href = '/account';
+                } else {
+                    const error = await response.json();
+                    document.getElementById('error').textContent = error.message;
+                }
+            } catch (error) {
+                document.getElementById('error').textContent = error.message;
+            }
+        });
+        </script>
+</body>
+</html>

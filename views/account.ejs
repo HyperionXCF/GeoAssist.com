@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Account</title>
+    <%- include('partials/header') %>
+</head>
+<body>
+    
+    <h1>Your Account</h1>
+    <% if (user) { %>
+        <p>Email: <%= user.email %></p>
+        <p>Role: <%= user.role %></p>
+        <a href="/logout">Logout</a>
+    <% } else { %>
+        <p>Please login to view this page</p>
+        <a href="/login">Login</a>
+    <% } %>
+</body>
+</html>

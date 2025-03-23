@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/header') %>
+    <script>
+        // Function to get user's geolocation
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        // Set latitude and longitude in hidden input fields
+                        document.getElementById('latitude').value = position.coords.latitude;
+                        document.getElementById('longitude').value = position.coords.longitude;
+                    },
+                    (error) => {
+                        console.error("Error getting location:", error);
+                        alert("Unable to retrieve your location. Please enable location services and try again.");
+                    }
+                );
+            } else {
+                alert("Geolocation is not supported by your browser.");
+            }
+        }
+
+        // Call getLocation when the page loads
+        window.onload = getLocation;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Disaster Reporting System</h1>
+        
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label>Disaster Name*</label>
+                <input type="text" name="disasterName" required>
+            </div>
+            
+            <!-- Hidden fields for latitude and longitude -->
+            <input type="hidden" id="latitude" name="latitude">
+            <input type="hidden" id="longitude" name="longitude">
+            
+            <div class="form-group">
+                <label>Description</label>
+                <textarea name="description"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Image</label>
+                <input type="file" name="image" accept="image/*">
+            </div>
+            
+            <button type="submit">Submit Report</button>
+        </form>
+
+        <h2>Recent Reports</h2>
+        <div id="map" style="height: 400px; margin-bottom: 20px;"></div> <!-- Map container -->
+        <table class="reports-table">
+            <thead>
+                <tr>
+                    <th>Disaster Name</th>
+                    <th>Location (Latitude, Longitude)</th>
+                    <th>Description</th>
+                    <th>Image</th>
+                    <th>Reported On</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% disasters.forEach(disaster => { %>
+                    <tr>
+                        <td><%= disaster.disasterName %></td>
+                        <td>
+                            <%= disaster.location.coordinates[1] %>, 
+                            <%= disaster.location.coordinates[0] %>
+                        </td>
+                        <td><%= disaster.description || "N/A" %></td>
+                        <td>
+                            <% if (disaster.image) { %>
+                                <img src="<%= disaster.image %>" alt="Disaster Image" class="report-image">
+                            <% } else { %>
+                                N/A
+                            <% } %>
+                        </td>
+                        <td><%= disaster.createdAt.toLocaleDateString() %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Initialize the map
+        const map = L.map('map').setView([20, 0], 2); // Default view (world map)
+
+        // Add a tile layer (map background)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Add markers for each disaster
+        const disasters = <%- JSON.stringify(disasters) %>; // Pass disaster data from backend
+        disasters.forEach(disaster => {
+            const [longitude, latitude] = disaster.location.coordinates;
+            const marker = L.marker([latitude, longitude]).addTo(map);
+            marker.bindPopup(`
+                <b>${disaster.disasterName}</b><br>
+                ${disaster.description || "No description"}<br>
+                <small>Reported on: ${new Date(disaster.createdAt).toLocaleDateString()}</small>
+            `);
+        });
+    </script>
+</body>
+</html>
