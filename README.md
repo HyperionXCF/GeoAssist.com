@@ -29,8 +29,5 @@ GeoAssist is a crowdsourced disaster relief platform designed to bridge communic
 -  Continuous location sharing for stranded users
 -  End-to-end encryption for sensitive user data
 
->>>>>>>>>>> copy all the files, setup environment with latest LTS nodeJS, expressJS, Mongoose Compass <<<<<<<<<<<<<
-
-'''
-nodemon disaster
-'''
+# This Project was an epic fail as we tried to viebcode things from scratch without knowing stuff. 
+Idea was excellent, everything was excellent except the implementation; will Learn all this tech and reattempt the project seriously and not vibecode it.  
